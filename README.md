@@ -16,4 +16,4 @@ Very few additive changes exist in this fork, although the imperative calling of
 [signin button](http://googlewebcomponents.github.io/google-signin/components/google-signin/)**
 
 
-See the [component page]() (Coming soon) for documentation.
+See the [component page](http://themallen.github.io/google-signin) for documentation.
