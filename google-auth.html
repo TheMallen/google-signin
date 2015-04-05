@@ -258,7 +258,7 @@ any apps you're building. See the Google Developers Console
 
         /**
         * The 'signIn' method initiates the sign in process
-        *
+        * Returns a promise of the signed in user
         * @return {Promise of the result}
         * @method signIn
         */
@@ -275,7 +275,7 @@ any apps you're building. See the Google Developers Console
           }, this);
 
           return auth.signIn(params).then((function(newUser) {
-            this.fire('google-signout-success');
+            this.fire('google-signin-success');
             return newUser;
           }).bind(this), function(error) {
             console.error(error);
@@ -292,15 +292,15 @@ any apps you're building. See the Google Developers Console
         },
 
         /**
-        * The 'signOut' method initiates an API call to the URL specified by the attribute 'graphURL'.
-        *
+        * The 'signOut' method initiates an API call for signing out.
+        * Returns a promise of the result
         * @return {Promise} of the result
         * @method signOut
         */
         signOut: function () {
           this.fire('google-signout-attempted');
-          auth.signOut().then(function() {
-            // Let the current user listener trigger the changes.
+          return auth.signOut().then(function(result) {
+            return result;
           }, function(error) {
             console.error(error);
           });
